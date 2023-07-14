@@ -9,15 +9,14 @@ int main(void)
 	int comma = ',';
 	int space = ' ';
 
-	for (number = '0'; number <= '9';)
+	for (number = '0'; number <= '9'; number++)
 	{
 		putchar(number);
-		for (number = '1'; number <= '9'; number++)
+		if (number != 9)
 		{
 			putchar(comma);
 			putchar(space);
 		}
-		number++;
 	}
 	putchar('\n');
 
