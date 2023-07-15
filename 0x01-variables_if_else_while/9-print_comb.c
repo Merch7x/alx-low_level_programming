@@ -5,14 +5,14 @@
  */
 int main(void)
 {
-	int number = '0';
-	int comma = ',';
+	int num = '0';
 	int space = ' ';
+	int comma = ',';
 
-	for (number = '0'; number <= '9'; number++)
+	for (num = '0'; num <= '9'; num++)
 	{
-		putchar(number);
-		if (number != 9)
+		putchar(num);
+		if (num >= '0' && num < '9')
 		{
 			putchar(comma);
 			putchar(space);
