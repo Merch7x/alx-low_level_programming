@@ -29,7 +29,6 @@ int main(void)
 						putchar(space);
 						putchar(num3);
 						putchar(num4);
-						
 					}
 				}
 			}
