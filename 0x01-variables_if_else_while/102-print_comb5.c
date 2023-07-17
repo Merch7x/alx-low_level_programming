@@ -20,7 +20,7 @@ int main(void)
 			{
 				for (num4 = '0'; num4 <= '9'; num4++)
 				{
-					if (num3 + num4 > num + num2)
+					if (num4 + num3 > num + num2 && num3 >= num)
 					{
 						putchar(num);
 						putchar(num2);
@@ -28,7 +28,7 @@ int main(void)
 						putchar(num3);
 						putchar(num4);
 
-						if (num >= '0' && num <= '9')
+						if (num3 >= '0' && num3 <= '9')
 						{
 							putchar(comma);
 							putchar(space);
