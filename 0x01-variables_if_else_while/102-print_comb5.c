@@ -22,13 +22,14 @@ int main(void)
 				{
 					if (num4 + num3 > num + num2 && num3 >= num)
 					{
+						putchar(comma);
+						putchar(space);
 						putchar(num);
 						putchar(num2);
 						putchar(space);
 						putchar(num3);
 						putchar(num4);
-						putchar(comma);
-						putchar(space);
+						
 					}
 				}
 			}
