@@ -27,12 +27,8 @@ int main(void)
 						putchar(space);
 						putchar(num3);
 						putchar(num4);
-
-						if (num3 >= '0' && num3 <= '9')
-						{
-							putchar(comma);
-							putchar(space);
-						}
+						putchar(comma);
+						putchar(space);
 					}
 				}
 			}
