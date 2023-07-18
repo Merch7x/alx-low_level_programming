@@ -1,10 +1,16 @@
 #include "main.h"
 /**
- * main - outputs th result of print_alphabet
- * Return: an integer value
+ * print_alphabet - calls a function to print to stdout
+ * Return: no return value
  */
-int main(void)
+void print_alphabet(void)
 {
-	print_alphabet();
-	return (0);
+	char a, b = '\n';
+
+	for (a = 'a'; a <= 'z'; a++)
+	{
+		_putchar(a)
+	}
+
+	_putchar(b);
 }
