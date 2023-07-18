@@ -20,15 +20,15 @@ int main(void)
 			{
 				for (num4 = '0'; num4 <= '9'; num4++)
 				{
-					if (num4 + num3 > num + num2 && num3 >= num)
+					if (num3 + num4 > num2 +num)
 					{
-						putchar(comma);
-						putchar(space);
 						putchar(num);
 						putchar(num2);
 						putchar(space);
 						putchar(num3);
 						putchar(num4);
+						putchar(comma);
+						putchar(space);
 					}
 				}
 			}
