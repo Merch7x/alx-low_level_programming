@@ -17,4 +17,5 @@ int print_last_digit(int a)
 	}
 
 	return (result);
+
 }
