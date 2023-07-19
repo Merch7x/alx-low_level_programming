@@ -12,12 +12,11 @@ void print_to_98(int n)
 	if (a <= b)
 	{
 		while (a <= b)
-		{	
+		{
 			printf("%d", a);
-		
 			a++;
 
-			if ( a <= b)
+			if (a <= b)
 			{
 				printf(", ");
 			}
@@ -26,12 +25,12 @@ void print_to_98(int n)
 
 	else if (a > b)
 	{
-		while (a > b)
+		while (a >= b)
 		{
 			printf("%d", a);
 			a--;
 
-			if ( a >= b)
+			if (a >= b)
 			{
 				printf(", ");
 			}
