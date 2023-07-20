@@ -15,7 +15,7 @@ void print_line(int n)
 	}
 	else
 	{
-		while (a <= n)
+		while (a < n)
 		{
 			_putchar(c);
 			a++;
