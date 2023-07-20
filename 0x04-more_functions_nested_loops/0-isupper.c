@@ -5,9 +5,9 @@
  */
 int _isupper(int c)
 {
-	int a = 'A', b = 'B';
+	int a;
 
-	for (a = 'A'; a < b; a++)
+	for (a = 'A'; a < 'Z'; a++)
 	{
 		if (c == a)
 		{
@@ -15,4 +15,5 @@ int _isupper(int c)
 		}
 	}
 	return (0);
+
 }
