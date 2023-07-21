@@ -2,6 +2,7 @@
 /**
  * main - outputs a list of numbers to stdout
  * Return: returns an int value
+ */
 int main(void)
 {
 	int a = 1;
