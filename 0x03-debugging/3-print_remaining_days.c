@@ -18,7 +18,7 @@ void print_remaining_days(int month, int day, int year)
 	    {
 		day++;
 	    }
-	    else if (year % 100 == 0)
+	    else if (year % 100 == 0 || year % 100 != 0)
 	    {
 
 		    day++;
