@@ -1,8 +1,10 @@
+#define NULL ((void *)0)
+
 /*
- * _strchr - locates character in string
- * @s: array pointer
- * @c: character to be found
- * Return: pointer to c or NULL if not found
+ * _strchr - locates a character in a string
+ * @s: string
+ * @c: character to be located
+ * Return: a pointer to the first occurence of c
  */
 char *_strchr(char *s, char c)
 {
@@ -16,8 +18,6 @@ char *_strchr(char *s, char c)
 		}
 		i++;
 	}
-
-	return (0);
+	return (NULL);
 }
-
 
