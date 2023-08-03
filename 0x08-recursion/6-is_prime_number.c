@@ -1,5 +1,6 @@
 /**
  * divisible - checks if n is divisble from start to end
+ * @n: integer to be checked
  * @start: start of search
  * @end: end of search int
  * Return: 1 if divisible
