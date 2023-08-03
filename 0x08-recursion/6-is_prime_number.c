@@ -16,7 +16,7 @@ int divisible(int n, int start, int end)
 		return (1);
 	}
 
-	return divisible(n, start + 1, end);
+	return (divisible(n, start + 1, end));
 }
 
 /**
