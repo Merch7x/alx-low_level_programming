@@ -14,8 +14,7 @@ int main(int argc, char *argv[])
 	{
 		printf("0\n");
 	}
-
-	else 
+	else
 	{
 		for (i = 1; i < argc; i++)
 		{
@@ -31,7 +30,7 @@ int main(int argc, char *argv[])
 				res += num;
 			}
 		}
-		printf("%d\n", res);
+		printf("%d\n", res)
 	}
 	return (0);
 }
