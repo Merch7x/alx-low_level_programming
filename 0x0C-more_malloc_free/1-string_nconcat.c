@@ -1,23 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * check_null - checks if null is passed as param
+ * string_length - checks length of string
  * @s1: parameter 1
  * @s2: paramter 2
- * Return: nothing
+ * Return: lenth of combined strings
  */
-char check_null(char *s1, char *s2)
+unsigned int string_length(char *s1, char *s2)
 {
-	if (s1 == NULL)
+	unsigned int len = 0, count1 = 0, count2 = 0;
+
+	while (*s1 != '\0')
 	{
-		s1 = "";
+		count1++;
+		s1++;
 	}
-	
-	if (s2 == NULL)
+	while (*s2 != '\0')
 	{
-		s2 = "";
+		count2++;
+		s2++;
 	}
-	return (s1) && (s2);
+	len = count1 + count2 + 2;
+	printf("%d", count2);
+	return (len);
 }
 /**
  * string_nconcat - concatenates two strings
@@ -31,17 +36,15 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int j = 0, i = 0, len = 0;
 	char *new_string;
 
-	check_null(s1, s2);
-
-	while (s1[i] != '\0')
+	if (s1 == NULL)
 	{
-		i++;
+		s1 = "";
 	}
-	while (s2[j] != '\0')
+	if (s2 == NULL)
 	{
-		j++;
+		s2 = "";
 	}
-	len = i + j + 1;
+	string_length(s1, s2);
 	new_string = malloc(sizeof(*new_string) * len);
 	if (new_string == NULL)
 	{
