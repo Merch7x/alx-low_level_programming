@@ -6,16 +6,18 @@
  * @s2: paramter 2
  * Return: nothing
  */
-void check_null(char *s1, char *s2)
+char check_null(char *s1, char *s2)
 {
 	if (s1 == NULL)
 	{
 		s1 = "";
 	}
+	
 	if (s2 == NULL)
 	{
 		s2 = "";
 	}
+	return (s1) && (s2);
 }
 /**
  * string_nconcat - concatenates two strings
@@ -41,19 +43,27 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	len = i + j + 1;
 	new_string = malloc(sizeof(*new_string) * len);
-
 	if (new_string == NULL)
 	{
 		return (NULL);
 	}
-
 	for (i = 0; i < n && s1[i] != '\0'; i++)
 	{
 		new_string[i] = s1[i];
 	}
-	for (j = 0; j < n && s2[j] != '\0'; j++)
+	if (n >= j)
 	{
-		new_string[i + j] = s2[j];
+		for (j = 0; s2[j] != '\0'; j++)
+		{
+			new_string[i + j] = s2[j];
+		}
+	}
+	else
+	{
+		for (j = 0; j < n && s2[j] != '\0'; j++)
+		{
+			new_string[i + j] = s2[j];
+		}
 	}
 	new_string[i + j] = '\0';
 	return (new_string);
