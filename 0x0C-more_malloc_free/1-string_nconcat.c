@@ -20,9 +20,24 @@ unsigned int string_length(char *s1, char *s2)
 		count2++;
 		s2++;
 	}
-	len = count1 + count2 + 2;
-	printf("%d", count2);
+	len = count1 + count2 + 1;
 	return (len);
+}
+/**
+ * s2_length - check the lenght of s2
+ * @s2: string to check for lenght
+ * Return: length of s2
+ */
+unsigned int s2_length(char *s2)
+{
+	unsigned int count = 0;
+
+	while (*s2 != '\0')
+	{
+		count++;
+		s2++;
+	}
+	return (count);
 }
 /**
  * string_nconcat - concatenates two strings
@@ -33,7 +48,7 @@ unsigned int string_length(char *s1, char *s2)
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int j = 0, i = 0, len = 0;
+	unsigned int j = 0, i = 0;
 	char *new_string;
 
 	if (s1 == NULL)
@@ -44,8 +59,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		s2 = "";
 	}
-	string_length(s1, s2);
-	new_string = malloc(sizeof(*new_string) * len);
+	new_string = malloc(sizeof(*new_string) * string_length(s1, s2));
 	if (new_string == NULL)
 	{
 		return (NULL);
@@ -54,7 +68,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		new_string[i] = s1[i];
 	}
-	if (n >= j)
+	if (n >= s2_length(s2))
 	{
 		for (j = 0; s2[j] != '\0'; j++)
 		{
