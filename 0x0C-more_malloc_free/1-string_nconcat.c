@@ -20,7 +20,7 @@ unsigned int string_length(char *s1, char *s2)
 		count2++;
 		s2++;
 	}
-	len = count1 + count2 + 1;
+	len = count1 + count2;
 	return (len);
 }
 /**
@@ -59,7 +59,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		s2 = "";
 	}
-	new_string = malloc(sizeof(*new_string) * string_length(s1, s2));
+	new_string = malloc(sizeof(*new_string) * string_length(s1, s2) + 1);
 	if (new_string == NULL)
 	{
 		return (NULL);
