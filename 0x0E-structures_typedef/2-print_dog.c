@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "dog.h"
 /**
  * print_dog - prints the struct dog
@@ -14,6 +15,10 @@ void print_dog(struct dog *d)
 	else if (d->owner == NULL)
 	{
 		printf("(nil)");
+	}
+	else if (d == NULL)
+	{
+		exit(0);
 	}
 	else
 	{
