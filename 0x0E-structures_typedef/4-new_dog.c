@@ -5,13 +5,13 @@
  * @name: name of dog
  * @age: age of dog
  * @owner: owner of dog
+ * Return: struct elememt
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	struct dog_t *dog;
 
 	dog = malloc(sizeof(struct dog_t));
-	
 	if (dog == NULL)
 	{
 		return (NULL);
