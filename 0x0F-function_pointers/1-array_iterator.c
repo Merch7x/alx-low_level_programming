@@ -1,4 +1,5 @@
 #include <stddef.h>
+#include <stdlib.h>
 /**
  * array_iterator - excutes a pfn on an array
  * @array: array
