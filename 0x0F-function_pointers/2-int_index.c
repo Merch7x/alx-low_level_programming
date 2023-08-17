@@ -2,7 +2,7 @@
 #include <stdlib.h>
 /**
  * int_index - searches for an integer
- * @array: araay to search from
+ * @array: array to search from
  * @size: number of elements in the array
  * @cmp: pfn
  * Return: index of first cmp failure
@@ -11,16 +11,15 @@ int int_index(int *array, int size, int (*cmp)(int))
 {
 	int i = 0;
 
-	if (size <= 0)
-	{
-		return (-1);
-	}
-
 	if (cmp != NULL && array != NULL)
 	{
 		for (i = 0; i < size; i++)
 		{
-			if (cmp(array[i]))
+			if (size <= 0)
+			{
+				return (-1);
+			}
+			else if (cmp(array[i]))
 			{
 				return (i);
 			}
