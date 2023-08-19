@@ -8,21 +8,13 @@
  */
 void print_dog(struct dog *d)
 {
-	printf("Name: %s\n", d->name);
-	printf("Age: %.6f\n", d->age);
-	printf("Owner: %s\n", d->owner);
+	    if (d == NULL)
+    {
+        printf("Invalid pointer to struct dog.\n");
+        return;
+    }
 
-	if (d->name == NULL)
-	{
-		printf("Name: (nil)\n");
-	}
-	if (d->owner == NULL)
-	{
-		printf("(nil)\n");
-	}
-	if (d == NULL)
-	{
-		exit(0);
-	}
-
+    printf("Name: %s\n", (d->name != NULL) ? d->name : "(nil)");
+    printf("Age: %.6f\n", d->age);
+    printf("Owner: %s\n", (d->owner != NULL) ? d->owner : "(nil)");
 }
