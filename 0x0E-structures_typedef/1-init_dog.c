@@ -11,14 +11,11 @@
  */
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
-	if (d != NULL)
+	if (d == NULL)
 	{
-		d->name = name;
-		d->age = age;
-		d->owner = owner;
+		exit (EXIT_FAILURE);
 	}
-	else
-	{
-		exit(1);
-	}
+	d->name = name;
+	d->age = age;
+	d->owner = owner;
 }
