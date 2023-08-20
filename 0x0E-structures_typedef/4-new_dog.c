@@ -1,38 +1,44 @@
 #include "dog.h"
 #include <stdlib.h>
 /**
- * _strlen - calculates the lenth of a string
- * @s: pointer of char type
- * Return: an integer value
+ * _strdup - copies an existing string in new memory
+ * @str: string copy
+ * Return: pointer to newly allocate dspace in memory
  */
-int _strlen(char *s)
+char *_strdup(char *str)
 {
-	int index = 0;
+	int i = 0, len;
+	char *new_string;
 
-	while (s[index] != '\0')
+	if (str == NULL)
 	{
-		index++;
+		return (NULL);
 	}
-	return (index);
-}
-/**
- * _strcpy - copy one param to another
- * @dest: destination parameter to copy to
- * @src: source parameter
- * Return: char value
- */
-char *_strcpy(char *dest, char *src)
-{
-	int i = 0;
 
-	while (src[i] != '\0')
+	while (str[i] != '\0')
 	{
-		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
+	len = i + 1;
 
-	return (dest);
+	new_string = malloc(sizeof(char) * len);
+
+	if (new_string == NULL)
+	{
+		return (NULL);
+	}
+	for (i = 0; i <= len; i++)
+	{
+		new_string[i] = str[i];
+	}
+
+	if (sizeof(new_string) != sizeof(str))
+	{
+		free(new_string);
+		return (NULL);
+	}
+	return (new_string);
+	free(new_string);
 }
 /**
  * new_dog - creates anew dog entry
@@ -44,6 +50,7 @@ char *_strcpy(char *dest, char *src)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *dog1;
+	char *name_copy, *owner_copy;
 
 	if (owner == NULL || name == NULL || age < 0)
 	{
@@ -55,26 +62,22 @@ dog_t *new_dog(char *name, float age, char *owner)
 	{
 		return (NULL);
 	}
-	dog1->name = malloc(sizeof(char) * (_strlen(name) + 1));
-	if (dog1->name == NULL)
+
+	name_copy = _strdup(name);
+	owner_copy = _strdup(owner);
+
+	if (name_copy == NULL || owner_copy == NULL)
 	{
+		free(name_copy);
+		free(owner_copy);
 		free(dog1);
-		return (NULL);
-	}
-	dog1->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
-	if (dog1->owner == NULL)
-	{
-		free(dog1->name);
-		free(dog1);
-		return (NULL);
 	}
 
-	_strcpy(dog1->name, name);
+	dog1->name = name_copy;
 	dog1->age = age;
-	_strcpy(dog1->owner, owner);
+	dog1->owner = owner_copy;
 
 	free(dog1->name);
 	free(dog1->owner);
 	return (dog1);
-	free(dog1);
 }
