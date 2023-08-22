@@ -1,43 +1,6 @@
 #include "dog.h"
 #include <stdlib.h>
-/**
- * _strdup - copies an existing string in new memory
- * @str: string copy
- * Return: pointer to newly allocate dspace in memory
- */
-char *_strdup(char *str)
-{
-	int i = 0, len;
-	char *new_string;
-
-	if (str == NULL)
-	{
-		return (NULL);
-	}
-
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	len = i + 1;
-
-	new_string = malloc(sizeof(char) * len);
-
-	if (new_string == NULL)
-	{
-		return (NULL);
-	}
-	for (i = 0; i <= len; i++)
-	{
-		new_string[i] = str[i];
-	}
-
-	if (sizeof(new_string) != sizeof(str))
-	{
-		return (NULL);
-	}
-	return (new_string);
-}
+#include <string.h>
 /**
  * new_dog - creates anew dog entry
  * @name: name of dog
@@ -61,14 +24,14 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	name_copy = _strdup(name);
+	name_copy = strdup(name);
 
 	if (name_copy == NULL)
 	{
 		free(name_copy);
 		return (NULL);
 	}
-	owner_copy = _strdup(owner);
+	owner_copy = strdup(owner);
 
 	if (owner_copy == NULL)
 	{
