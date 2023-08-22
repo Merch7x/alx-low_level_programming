@@ -34,11 +34,9 @@ char *_strdup(char *str)
 
 	if (sizeof(new_string) != sizeof(str))
 	{
-		free(new_string);
 		return (NULL);
 	}
 	return (new_string);
-	free(new_string);
 }
 /**
  * new_dog - creates anew dog entry
@@ -64,20 +62,22 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 
 	name_copy = _strdup(name);
+
+	if (name_copy == NULL)
+	{
+		free(name_copy);
+		return (NULL);
+	}
 	owner_copy = _strdup(owner);
 
-	if (name_copy == NULL || owner_copy == NULL)
+	if (owner_copy == NULL)
 	{
 		free(name_copy);
 		free(owner_copy);
-		free(dog1);
+		return (NULL);
 	}
-
 	dog1->name = name_copy;
 	dog1->age = age;
-	dog1->owner = owner_copy;
-
-	free(dog1->name);
-	free(dog1->owner);
+	dog1->owner = owner;
 	return (dog1);
 }
