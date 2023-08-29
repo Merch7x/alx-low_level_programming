@@ -31,11 +31,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		{
 			new_node->n = n;
 			new_node->next = tmp->next;
-			tmp = new_node;
+			tmp->next = new_node;
 		}
 		else
 		{
-			free(new_node);
 			return (NULL);
 		}
 		count++;
