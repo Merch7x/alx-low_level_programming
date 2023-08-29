@@ -12,7 +12,7 @@ size_t print_listint(const listint_t *h)
 	
 	if (h == NULL)
 	{
-		return (NULL);
+		return (count);
 	}
 
 	while (current != NULL)
