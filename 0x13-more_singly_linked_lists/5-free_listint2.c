@@ -5,18 +5,20 @@
  * free_listint2 - frees allocated memory
  * @head: reference to head of file
  *
- * Description: frees a linked list that has the HEAD intialised to NULL
+ * Description: frees a linked list and intialises the HEAD to NULL
  *
  * Return: Nothing
  */
 void free_listint2(listint_t **head)
 {
-	listint_t *tmp;
+	listint_t *tmp = *head;
+	listint_t *next;
 
-	for (tmp = head; tmp != NULL; tmp = head)
+	while (tmp != NULL)
 	{
-		head = (*head)->next;
+		next = tmp->next;
 		free(tmp);
+		tmp = next;
 	}
 	*head = NULL;
 }
