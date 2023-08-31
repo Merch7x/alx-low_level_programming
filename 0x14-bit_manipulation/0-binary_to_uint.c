@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include "main.h"
-#include <string.h>
-#include <math.h>
 /**
  * binary_to_uint - converts a binary number to an int
  * @b: pointer to binary number
@@ -16,7 +14,10 @@ if (!b)
 {
 return (0);
 }
-len = strlen(b);
+while (b[len] != '\0')
+{
+len++;
+}
 
 while (len)
 {
@@ -24,12 +25,10 @@ if (b[len - 1] != '0' && b[len - 1] != '1')
 {
 return (0);
 }
-
 res += (b[len - 1] - '0') * base;
 base *= 2;
 len--;
 }
-
 return (res);
-
 }
+
