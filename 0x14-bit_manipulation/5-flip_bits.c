@@ -16,11 +16,11 @@ return (0);
 }
 while (dif_in_bits)
 {
-  if (dif_in_bits & 1)
-  {
-    count++;
-  }
-  dif_in_bits >>= 1;
+if (dif_in_bits & 1)
+{
+count++;
+}
+dif_in_bits >>= 1;
 }
 return (count);
 }
