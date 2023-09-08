@@ -26,7 +26,7 @@ return (-1);
 fd2 = write(fd, text_content, strlen(text_content));
 if (fd2 == -1)
 {
-  return (-1);
+return (-1);
 }
 close(fd);
 return (1);
