@@ -12,7 +12,7 @@
 */
 int append_text_to_file(const char *filename, char *text_content)
 {
-int fd;
+int fd, fd2;
 
 if (filename == NULL)
 {
@@ -23,13 +23,10 @@ if (fd == -1)
 {
 return (-1);
 }
-if (text_content != NULL)
+fd2 = write(fd, text_content, strlen(text_content));
+if (fd2 == -1)
 {
-if (write(fd, text_content, strlen(text_content)) == -1)
-{
-close(fd);
-return (-1);
-}
+  return (-1);
 }
 close(fd);
 return (1);
