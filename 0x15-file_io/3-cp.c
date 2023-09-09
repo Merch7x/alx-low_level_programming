@@ -64,8 +64,7 @@ int main(int ac, char **av)
 	buff = make_buffer(av[2]);
 	rd = read(ftr, buff, 1024);
 
-	do
-	{
+	do {
 		if (ftr == -1 || rd == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
