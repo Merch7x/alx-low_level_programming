@@ -23,10 +23,21 @@ if (fd == -1)
 {
 return (-1);
 }
+if (text_content != NULL)
+{
 fd2 = write(fd, text_content, strlen(text_content));
 if (fd2 == -1)
 {
 return (-1);
+}
+} 
+else
+{
+fd2 = write(fd, "", 0);
+if (fd2 == -1)
+{
+return(-1);
+}
 }
 close(fd);
 return (1);
