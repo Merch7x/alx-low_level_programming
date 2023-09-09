@@ -30,13 +30,13 @@ if (fd2 == -1)
 {
 return (-1);
 }
-} 
+}
 else
 {
 fd2 = write(fd, "", 0);
 if (fd2 == -1)
 {
-return(-1);
+return (-1);
 }
 }
 close(fd);
