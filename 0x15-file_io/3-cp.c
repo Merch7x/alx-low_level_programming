@@ -62,8 +62,9 @@ int main(int ac, char **av)
 	ftr = open(av[1], O_RDONLY);
 	ftw = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	buff = make_buffer(av[2]);
+	rd = read(ftr, buff, 1024);
 
-	while ((rd = read(ftr, buff, 1024)) > 0)
+	do
 	{
 		if (ftr == -1 || rd == -1)
 		{
@@ -79,9 +80,10 @@ int main(int ac, char **av)
 			free(buff);
 			exit(99);
 		}
-		rd = (ftr, buff, 1024);
+		rd = read(ftr, buff, 1024);
 		ftw = open(av[2], O_WRONLY | O_APPEND);
-	}
+	} while (rd > 0);
+
 	free(buff);
 	close_file(ftr);
 	close_file(ftw);
