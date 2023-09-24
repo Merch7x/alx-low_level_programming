@@ -11,10 +11,12 @@ int main(int argc, char *argv[])
 {
 int res;
 int (*p)(int, int);
-int num1 = atoi(argv[1]);
-int num2 = atoi(argv[3]);
+int num1;
+int num2;
 
 p = get_op_func(argv[2]);
+num1 = atoi(argv[1]);
+num2 = atoi(argv[3]);
 
 if (argc != 4)
 {
