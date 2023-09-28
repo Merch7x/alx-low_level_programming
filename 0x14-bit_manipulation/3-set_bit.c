@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 /**
  * set_bit - set the value of abit at a specified index
  * @n: integer to set the bit

@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 /**
  * get_bit - gets the value of a bit at a specified index
  * @n: integer to convert to binary
