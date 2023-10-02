@@ -61,19 +61,7 @@ exit(97);
 }
 
 file_from_fd = open(av[1], O_RDONLY);
-// if (file_from_fd == -1)
-// {
-// dprintf(STDERR_FILENO, "Error: Can't open file %s\n", av[1]);
-// exit(99);
-// }
-
 file_to_fd = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
-// if (file_to_fd == -1)
-// {
-// dprintf(STDERR_FILENO, "Error: Can't open file %s\n", av[2]);
-// exit(99);
-// }
-
 buff = make_buffer(av[2]);
 bytes_read = read(file_from_fd, buff, 1024);
 
