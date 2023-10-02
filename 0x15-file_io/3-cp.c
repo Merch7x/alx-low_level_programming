@@ -44,11 +44,6 @@ void close_file(int fd)
  * @av: array of the args;
  * Return: an int value
 */
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
-
 int main(int ac, char **av)
 {
 int file_from_fd, file_to_fd, bytes_read, bytes_written;
@@ -87,6 +82,5 @@ file_to_fd = open(av[2], O_WRONLY | O_APPEND);
 free(buff);
 close_file(file_from_fd);
 close_file(file_to_fd);
-
 return (0);
 }
