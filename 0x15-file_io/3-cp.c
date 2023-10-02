@@ -1,6 +1,6 @@
 #include "main.h"
-// char *make_buffer(char *file);
-// void close_file(int fd);
+char *make_buffer(char *file);
+void close_file(int fd);
 /**
  * make_buffer - creates a buffer of 1024 bytes
  * @file: name of file that is read into buff
