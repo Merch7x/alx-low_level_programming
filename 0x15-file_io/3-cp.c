@@ -44,43 +44,61 @@ void close_file(int fd)
  * @av: array of the args;
  * Return: an int value
 */
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
+
 int main(int ac, char **av)
 {
-	int file_from_fd, file_to_fd, bytes_read, bytes_written;
-	char *buff;
+int file_from_fd, file_to_fd, bytes_read, bytes_written;
+char *buff;
 
-	if (ac != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
-	file_from_fd = open(av[1], O_RDONLY);
-	file_to_fd= open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	buff = make_buffer(av[2]);
-	bytes_read = read(file_from_fd, buff, 1024);
+if (ac != 3)
+{
+dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+exit(97);
+}
 
-	do {
-		if (file_from_fd == -1 || bytes_read == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-			free(buff);
-			exit(98);
-		}
-		bytes_written = write(file_to_fd, buff, bytes_read);
+file_from_fd = open(av[1], O_RDONLY);
+if (file_from_fd == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't open file %s\n", av[1]);
+exit(99);
+}
 
-		if (file_to_fd == -1 || bytes_written == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[2]);
-			free(buff);
-			exit(99);
-		}
-		bytes_read = read(file_from_fd, buff, 1024);
-		file_to_fd = open(av[2], O_WRONLY | O_APPEND);
-	} while (bytes_read > 0);
+file_to_fd = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+if (file_to_fd == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't open file %s\n", av[2]);
+exit(99);
+}
 
-	free(buff);
-	close_file(file_from_fd);
-	close_file(file_to_fd);
+buff = make_buffer(av[2]);
+bytes_read = read(file_from_fd, buff, 1024);
 
-	return (0);
+do {
+if (file_from_fd == -1 || bytes_read == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
+free(buff);
+exit(98);
+}
+bytes_written = write(file_to_fd, buff, bytes_read);
+
+if (file_to_fd == -1 || bytes_written == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[2]);
+free(buff);
+exit(99);
+}
+bytes_read = read(file_from_fd, buff, 1024);
+file_to_fd = open(av[2], O_WRONLY | O_APPEND);
+} while (bytes_read > 0);
+
+free(buff);
+close_file(file_from_fd);
+close_file(file_to_fd);
+
+return (0);
 }
