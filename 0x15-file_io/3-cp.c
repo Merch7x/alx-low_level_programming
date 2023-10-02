@@ -46,41 +46,41 @@ void close_file(int fd)
 */
 int main(int ac, char **av)
 {
-	int ftr, ftw, rd, wr;
+	int file_from_fd, file_to_fd, bytes_read, bytes_written;
 	char *buff;
 
 	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(98);
+		exit(97);
 	}
-	ftr = open(av[1], O_RDONLY);
-	ftw = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	file_from_fd = open(av[1], O_RDONLY);
+	file_to_fd= open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	buff = make_buffer(av[2]);
-	rd = read(ftr, buff, 1024);
+	bytes_read = read(file_from_fd, buff, 1024);
 
 	do {
-		if (ftr == -1 || rd == -1)
+		if (file_from_fd == -1 || bytes_read == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 			free(buff);
 			exit(98);
 		}
-		wr = write(ftw, buff, rd);
+		bytes_written = write(file_to_fd, buff, bytes_read);
 
-		if (ftw == -1 || wr == -1)
+		if (file_to_fd == -1 || bytes_written == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[2]);
 			free(buff);
 			exit(99);
 		}
-		rd = read(ftr, buff, 1024);
-		ftw = open(av[2], O_WRONLY | O_APPEND);
-	} while (rd > 0);
+		bytes_read = read(file_from_fd, buff, 1024);
+		file_to_fd = open(av[2], O_WRONLY | O_APPEND);
+	} while (bytes_read > 0);
 
 	free(buff);
-	close_file(ftr);
-	close_file(ftw);
+	close_file(file_from_fd);
+	close_file(file_to_fd);
 
 	return (0);
 }
