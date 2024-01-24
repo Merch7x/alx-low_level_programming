@@ -7,14 +7,17 @@ RM = rm -f
 
 .PHONY: all clean oclean fclean re
 
-all: m.h $(NAME)
+all: $(NAME)
 
 
 $(NAME): $(OBJ)
-	$(CC) -o $@ $^
+	$(CC) -o $@ $(OBJ) -Wall -Wextra -pedantic -std=gnu11
 
-$(OBJ): %.o: %.c m.h
-	$(CC) -c $< -o $@
+main.o: main.c m.h
+	$(CC) -c $< -o $@ -Wall -Wextra -pedantic -std=gnu11
+
+school.o: school.c m.h
+	$(CC) -c $< -o $@ -Wall -Wextra -pedantic -std=gnu11
 
 re: fclean all
 
