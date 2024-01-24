@@ -16,8 +16,9 @@ $(NAME): $(OBJ)
 %.o: %.c
 	$(CC) -c $< -o $@
 
-re:
-	-touch $(SRC)
+re: fclean all
+
+
 clean:
 	-$(RM) $(NAME) *~
 
