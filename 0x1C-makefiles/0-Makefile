@@ -1,0 +1,4 @@
+.PHONY: all
+
+all:
+	gcc -o school m.h main.c school.c
