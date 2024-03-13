@@ -33,9 +33,9 @@ void print_array(int *array, int start, int end, size_t size)
  */
 int binary_search(int *array, size_t size, int value)
 {
-	int flag = 0;
-	int low = array[0];
-	int high = array[size - 1];
+	int flag = -1;
+	int low = 0;
+	int high = size - 1;
 	int mid = 0;
 
 	if (array == NULL)
